@@ -90,7 +90,7 @@ export default function Qustions({ title, dataPromise }: QustionsType) {
       <div className='mt-4'>
         <RadioGroup
           value={answers[currentQ.id] || ""}
-          onValueChange={(val) => {
+          onValueChange={(val: string) => {
             setAnswers(prev => ({
               ...prev,
               [currentQ.id]: val

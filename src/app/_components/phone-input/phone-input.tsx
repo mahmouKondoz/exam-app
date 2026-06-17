@@ -95,7 +95,7 @@ const CountrySelect = ({
     <Popover
       open={isOpen}
       modal
-      onOpenChange={(open) => {
+      onOpenChange={(open: boolean) => {
         setIsOpen(open)
         open && setSearchValue("")
       }}
@@ -120,7 +120,7 @@ const CountrySelect = ({
           <CommandInput
             placeholder="Search country..."
             value={searchValue}
-            onValueChange={(value) => setSearchValue(value)}
+            onValueChange={(value: string) => setSearchValue(value)}
           />
 
           <CommandList>

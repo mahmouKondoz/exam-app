@@ -74,7 +74,7 @@ export default function UpdateEmail() {
   return (
     <Dialog
       open={isDialogOpen}
-      onOpenChange={(open) => {
+      onOpenChange={(open:boolean) => {
         if (!open) {
           setShowOtp(false)
           setNewEmail('')

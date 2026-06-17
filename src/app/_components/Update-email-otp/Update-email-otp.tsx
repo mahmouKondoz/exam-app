@@ -91,7 +91,7 @@ export default function UpdateEmailOTP({ email, onVerify, onEdit, onSuccess }: U
             <div className="space-y-4 mt-7.5">
                 <Field>
                     <InputOTP
-                        onChange={(values) => {
+                        onChange={(values:string) => {
                             setOtpValues(values)
                             if (error) reset()
                         }}

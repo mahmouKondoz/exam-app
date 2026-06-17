@@ -101,7 +101,7 @@ export default function EmailVervication({ userEmail, setOtp , setisFocused }: E
 
             <CardContent>
               <Field>
-                <InputOTP onChange={(vlaues) => { setotpValues(vlaues) }} maxLength={6} id="otp-verification" required>
+                <InputOTP onChange={(values: string | undefined) => { setotpValues(values) }} maxLength={6} id="otp-verification" required>
                   <InputOTPGroup className="*:data-[slot=input-otp-slot]:h-12 *:data-[slot=input-otp-slot]:w-11 *:data-[slot=input-otp-slot]:text-xl *:data-[slot=input-otp-slot]:rounded-none gap-5">
                     <InputOTPSlot index={0} />
                     <InputOTPSlot index={1} />
