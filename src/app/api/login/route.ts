@@ -14,21 +14,21 @@ export async function POST(req: NextRequest) {
 
     const data = await res.json()
 
-
-
-    if(!res.ok){
-        return NextResponse.json(data.message,{ status: res.status })
+    if (!res.ok) {
+      return NextResponse.json(  
+        { status: 'error', data: data.message },
+        { status: res.status }
+      )
     }
 
-    const response = NextResponse.json({ data , message: 'Logged in successfully ' })
+    const response = NextResponse.json({ data, message: 'Logged in successfully' })
 
-    
     response.cookies.set('token', data.payload.token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production' ,
+      secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
       path: '/',
-      maxAge: 60 * 60 * 24, 
+      maxAge: 60 * 60 * 24,
     })
 
     return response
