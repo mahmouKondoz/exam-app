@@ -11,15 +11,21 @@
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
     "@tanstack/react-query": "^5.101.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "input-otp": "^1.4.2",
     "lucide-react": "^1.20.0",
     "next": "16.1.6",
     "next-auth": "^4.24.14",
+    "radix-ui": "^1.6.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-hook-form": "^7.79.0",
     "react-infinite-scroll-component": "^7.2.1",
     "react-phone-number-input": "^3.4.17",
     "sonner": "^2.0.7",
+    "tailwind-merge": "^3.6.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
