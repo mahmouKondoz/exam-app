@@ -6,7 +6,7 @@ import { Field, FieldError, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { useMutation } from '@tanstack/react-query'
 import { CircleX, Eye, EyeOff, Loader } from 'lucide-react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { Controller, useForm, UseFormReturn } from 'react-hook-form'
 import { z } from 'zod'
@@ -15,6 +15,8 @@ import Link from 'next/link'
 import RestPasswordApi from '@/lib/apis/(Auth)/reset-password.api'
 import { respasswordType } from '@/lib/Types/reset-password'
 import { toast } from 'sonner'
+
+export const dynamic = 'force-dynamic'
 
 
 type ShowState = {
@@ -26,24 +28,27 @@ type ShowState = {
 
 export default function CreatePassword() {
 
-  const searchParams = useSearchParams()
-  const userToken = searchParams.get('token')
+  const [userToken, setUserToken] = React.useState<string | null>(null)
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    setUserToken(params.get('token'))
+  }, [])
   const route = useRouter()
 
 
-  const {mutate , isPending , isError , error } = useMutation({
-    mutationKey:['CreatePassword'] , 
-    mutationFn:RestPasswordApi , 
-    onSuccess:(data)=>{
-      console.log('Success' , data);
+  const { mutate, isPending, isError, error } = useMutation({
+    mutationKey: ['CreatePassword'],
+    mutationFn: RestPasswordApi,
+    onSuccess: (data) => {
+      console.log('Success', data);
       toast.success(data.message)
       route.push('Login')
 
-      
-    } , 
-    onError:(error)=>{
-      console.log('Error' , error.message);
-      
+
+    },
+    onError: (error) => {
+      console.log('Error', error.message);
+
     }
   })
 
@@ -97,10 +102,10 @@ export default function CreatePassword() {
 
 
 
-  async function onSubmit(data:respasswordType) {
+  async function onSubmit(data: respasswordType) {
     console.log(data);
-    
-   mutate(data)
+
+    mutate(data)
 
   }
 
@@ -183,23 +188,23 @@ export default function CreatePassword() {
 
           />
 
-           {
-                  isError && <div className='w-full h-9.5 bg-red-50 p-2.5 border relative border-red-600 flex justify-center items-center mt-8 mb-24.5'>
-                    <p className='text-red-600'>{error.message}</p>
-                    <CircleX size={18} color='red' className='absolute -top-2.5 right-70' />
+          {
+            isError && <div className='w-full h-9.5 bg-red-50 p-2.5 border relative border-red-600 flex justify-center items-center mt-8 mb-24.5'>
+              <p className='text-red-600'>{error.message}</p>
+              <CircleX size={18} color='red' className='absolute -top-2.5 right-70' />
 
 
-                  </div>
-                }
+            </div>
+          }
 
 
-         
+
           <Button
-                  className={`w-full bg-blue-600 hover:bg-blue-700 h-11.5 rounded-none mt-10 ${isPending ? 'cursor-not-allowed' : 'cursor-pointer'}`}
-                  disabled={isPending}
-                >
-                  {isPending ? <Loader className="animate-spin" /> : 'Reset Password'}
-                </Button>
+            className={`w-full bg-blue-600 hover:bg-blue-700 h-11.5 rounded-none mt-10 ${isPending ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+            disabled={isPending}
+          >
+            {isPending ? <Loader className="animate-spin" /> : 'Reset Password'}
+          </Button>
           <div className="flex gap-2 justify-center items-center mt-9">
             <p className="text-gray-600">Don't have an account?</p>
             <Link className="text-blue-600" href={`/Register`}>

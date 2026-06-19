@@ -8,3 +8,5 @@ export interface Isregister {
   phone: string
 
 }
+
+export type UserData = Isregister
