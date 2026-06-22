@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { DecodingAuthToken } from "./lib/util/auth.util";
+import { cookies } from "next/headers";
 
 
 
@@ -9,7 +10,7 @@ export default async function proxy(req:NextRequest){
   
 
 
-    let token = jwt?.token
+    let token = (await cookies()).get('next-auth.session-token')
     let {pathname} = req.nextUrl
 
     let isDashboard = pathname === '/'

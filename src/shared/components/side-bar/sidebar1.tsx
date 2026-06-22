@@ -38,6 +38,7 @@ export default function Sidebar1() {
 
 
       <div className='mt-10  gap-2.5 ms-10 ' >
+        <Link href={'/'}>
         <Image
           className="invert"
           src={logo.src}
@@ -46,6 +47,7 @@ export default function Sidebar1() {
           height={36}
 
         />
+        </Link>
         <div className="flex mt-2.5 items-center w-full  ">
           <Image
             src={`/images/folder-code.png`}
