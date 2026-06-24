@@ -4,7 +4,6 @@ import logo from '../../../../public/images/0b7894f3f9e34690bf0c8b5b2e5d087debd7
 import Image from 'next/image'
 import { GraduationCap, User, MoreVertical, LogOut } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
-import path from 'path'
 import Link from 'next/link'
 import {
   Popover,
