@@ -1,4 +1,4 @@
-import Restpassword from "@/app/_components/reset-password/reset-password";
+import Restpassword from "@/app/_components/reset-password-2/reset-password";
 import { Suspense } from "react";
 
 export default function CreatePassword() {
