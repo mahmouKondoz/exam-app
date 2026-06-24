@@ -25,7 +25,6 @@ export default function Sidebar1() {
 
 
 
-  let userInfo =JSON.parse(localStorage.getItem('UserInfo') || 'null')
   
 
   const handleLogout = () => {
