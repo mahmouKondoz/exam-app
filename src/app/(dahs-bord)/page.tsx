@@ -2,7 +2,6 @@
 import { GraduationCap } from 'lucide-react';
 import PageTitle from '../../shared/components/page-title/page-title';
 import Diploma from '@/app/_components/Diploma/get-all-deplomes';
-import { DecodingAuthToken } from '@/lib/util/auth.util';
 import { getAuthToken } from '@/features/hooks/get-auth-token';
 
 

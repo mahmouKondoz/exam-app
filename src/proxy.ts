@@ -6,7 +6,6 @@ import { cookies } from "next/headers";
 
 export default async function proxy(req:NextRequest){
 
-  const jwt = await DecodingAuthToken()
   
 
 

@@ -1,10 +1,9 @@
 import Exams from '@/app/_components/exams/Exams';
-import Exam from '@/app/_components/exams/Exams';
+
 import PushBack from '@/shared/components/Back-arrow/Push-back';
 import PageTitle from '@/shared/components/page-title/page-title';
 import { BookOpenCheck, ChevronLeft } from 'lucide-react';
-import Link from 'next/link';
-import React from 'react'
+
 
 interface PageProps {
   params: Promise<{ cardId: string }>;
