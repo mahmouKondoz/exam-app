@@ -29,7 +29,7 @@ export const authOptions: AuthOptions = {
                 const data: IloginResponse = await res.json()
 
                 if (!data.status) {
-                    throw new Error(data.message)
+                   return null 
                 }
 
                 return {
