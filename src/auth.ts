@@ -1,14 +1,23 @@
-import { User } from 'lucide-react';
-import Credentials from 'next-auth/providers/credentials';
-import { AuthOptions } from './../node_modules/next-auth/core/types.d';
-import { IloginResponse } from './lib/Types/login';
-
+import Credentials from 'next-auth/providers/credentials'
+import { AuthOptions } from 'next-auth'  
+import { IloginResponse } from './lib/Types/login'
 
 
 export const authOptions: AuthOptions = {
     pages: {
         signIn: '/Login'
     },
+    secret: process.env.NEXTAUTH_SECRET,  
+
+    session: {
+        strategy: 'jwt',
+        maxAge: 24 * 60 * 60,  
+    },
+
+    jwt: {
+        maxAge: 24 * 60 * 60, 
+    },
+
     providers: [
         Credentials({
             name: '',
@@ -22,33 +31,31 @@ export const authOptions: AuthOptions = {
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({ username: credentials?.username, password: credentials?.password })
-
+                    body: JSON.stringify({ 
+                        username: credentials?.username, 
+                        password: credentials?.password 
+                    })
                 })
 
                 const data: IloginResponse = await res.json()
 
                 if (!data.status) {
-                   return null 
+                    return null
                 }
 
                 return {
                     id: data.payload.user.id,
                     user: data.payload.user,
                     token: data.payload.token
-
                 }
-
             }
         })
     ],
     callbacks: {
         jwt: ({ token, user, trigger, session }) => {
             if (user && (trigger == 'signIn' || trigger == 'update')) {
-
-                token.user = user.user,
-                    token.token = user.token
-
+                token.user = user.user
+                token.token = user.token
             }
 
             if (trigger === "update" && session?.user) {
@@ -58,15 +65,10 @@ export const authOptions: AuthOptions = {
                 }
             }
             return token
-
         },
         session: ({ session, token }) => {
             session.user = token.user
-
             return session
-
-
         }
     }
-
 }

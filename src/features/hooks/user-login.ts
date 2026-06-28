@@ -20,7 +20,7 @@ export function LoginMutate() {
             return res
         },
         onSuccess: () => {
-            window.location.href = '/'  // ✅ hardcoded to your main page
+            window.location.href = '/'  
         }
     })
 }
