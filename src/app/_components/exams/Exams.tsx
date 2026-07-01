@@ -15,7 +15,7 @@ import ExamSkelton from '../skeltons/eaxm-skelton/exam-skelton';
 export default function Exams({ cardId }: { cardId: string }) {
 
     async function fetchExam(pageParam: number) {
-        const res = await fetch(`http://localhost:3000/api/diploma/${cardId}?page=${pageParam}&limit=6`,)
+        const res = await fetch(`/api/diploma/${cardId}?page=${pageParam}&limit=6`,)
         return res.json()
     }
 

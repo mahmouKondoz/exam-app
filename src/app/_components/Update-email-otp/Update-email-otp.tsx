@@ -36,7 +36,7 @@ export default function UpdateEmailOTP({ email, onVerify, onEdit, onSuccess }: U
 
 
     async function handelEmailOtp() {
-        let res = await fetch('http://localhost:3000/api/update-email-otp', {
+        let res = await fetch('/api/update-email-otp', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

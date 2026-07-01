@@ -3,7 +3,7 @@ import { UpdateUserInfo } from "@/lib/Types/update-user-info"
 
 export default async function UpdateProfile(UserNewData:UpdateUserInfo){
 
-    let res = await fetch('http://localhost:3000/api/profile' , {
+    let res = await fetch('/api/profile' , {
         method:'PATCH' , 
          
         headers:{

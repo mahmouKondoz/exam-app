@@ -34,7 +34,7 @@ export default function UpdateEmail() {
 
 
   const changeEmail = async (newEmail: string) => {
-    const res = await fetch("http://localhost:3000/api/change-email", {
+    const res = await fetch("/api/change-email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -19,7 +19,7 @@ export default function Diploma() {
 
     async function handelDiplomas(pageParam: number) {
 
-        let res = await fetch(`http://localhost:3000/api/diploma?page=${pageParam}`)
+        let res = await fetch(`/api/diploma?page=${pageParam}`)
         let data = await res.json()
         return data
 

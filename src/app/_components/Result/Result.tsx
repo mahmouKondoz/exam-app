@@ -27,7 +27,7 @@ export default function Result({ formattedAnswers, examId, createAt  , resetQuiz
 
 
     async function handelResult({ formattedAnswers, examId, createAt }: ResultType) {
-        let res = await fetch('http://localhost:3000/api/results', {
+        let res = await fetch('/api/results', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -55,7 +55,7 @@ export default function ChangePassword() {
 
 
   async function handelChangePassword(passwords:dataType){
-    let res = await fetch('http://localhost:3000/api/chnage-password' , {
+    let res = await fetch('/api/chnage-password' , {
       method:'POST', 
       headers:{
         'Content-Type':'application/json' , 

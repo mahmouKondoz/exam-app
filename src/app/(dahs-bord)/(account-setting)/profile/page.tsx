@@ -75,7 +75,7 @@ export default function Profile() {
     }
 
 
-    let res = await fetch('http://localhost:3000/api/profile', {
+    let res = await fetch('/api/profile', {
       method: 'PATCH',
 
       headers: {
